@@ -49,7 +49,7 @@ public class MyWindow extends JFrame {
 				Rectangle2D r = (Rectangle2D) s;
 				r.setRect(r.getX() + 20, r.getY(), r.getWidth(), r.getHeight());
 			}
-			// canvas.repaint();	
+			canvas.repaint();	
 		}
 
 	}
