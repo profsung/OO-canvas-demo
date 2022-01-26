@@ -15,8 +15,8 @@ public class MyCanvas extends JPanel {
 	public MyCanvas() {
 		setPreferredSize(new Dimension(500, 400));
 		things2Draw = new ArrayList<>();
-		things2Draw.add(new Rectangle2D.Double(200, 180 , 50, 50));
-		things2Draw.add(new Rectangle2D.Double(220, 240 , 70, 50));
+		things2Draw.add(new Rectangle2D.Double(20, 20 , 30, 30));
+		things2Draw.add(new Rectangle2D.Double(40, 140 , 50, 50));
 	}
 
 	@Override
@@ -25,7 +25,7 @@ public class MyCanvas extends JPanel {
 		Graphics2D g2 = (Graphics2D) g;
 
 		for (Shape s: things2Draw) {
-			g2.setColor(Color.RED);
+			g2.setColor(Color.BLUE);
 			g2.fill(s);
 		}
 	}

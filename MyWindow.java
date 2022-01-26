@@ -11,7 +11,6 @@ import javax.swing.JPanel;
 
 public class MyWindow extends JFrame {
 
-	private JButton leftButton;
 	private JButton rightButton;
 	private MyCanvas canvas;
 
@@ -23,35 +22,34 @@ public class MyWindow extends JFrame {
 
 		JPanel southPanel = new JPanel();
 		cp.add(BorderLayout.SOUTH, southPanel);
-		leftButton = new JButton("Left");
 		rightButton = new JButton("Right");
-		southPanel.add(leftButton);
 		southPanel.add(rightButton);
 
 		canvas = new MyCanvas();
 		cp.add(BorderLayout.CENTER, canvas);
 
-		leftButton.addActionListener(new LeftMoveEvent());
+		RightMoveEvent r = new RightMoveEvent();
+		rightButton.addActionListener(r);
 
-		rightButton.addActionListener(event -> {
-			for (Shape s: canvas.getShapes()) {
-				Rectangle2D r = (Rectangle2D) s;
-				r.setRect(r.getX() + 5, r.getY(), r.getWidth(), r.getHeight());
-			}
-			canvas.repaint();
-		});
+		// rightButton.addActionListener(event -> {
+		// 	for (Shape s: canvas.getShapes()) {
+		// 		Rectangle2D r = (Rectangle2D) s;
+		// 		r.setRect(r.getX() + 5, r.getY(), r.getWidth(), r.getHeight());
+		// 	}
+		// 	canvas.repaint();
+		// });
 
 	}
 
-	class LeftMoveEvent implements ActionListener {
+	class RightMoveEvent implements ActionListener {
 
 		@Override
 		public void actionPerformed(ActionEvent event) {
 			for (Shape s: canvas.getShapes()) {
 				Rectangle2D r = (Rectangle2D) s;
-				r.setRect(r.getX() - 5, r.getY(), r.getWidth(), r.getHeight());
+				r.setRect(r.getX() + 20, r.getY(), r.getWidth(), r.getHeight());
 			}
-			canvas.repaint();	
+			// canvas.repaint();	
 		}
 
 	}
